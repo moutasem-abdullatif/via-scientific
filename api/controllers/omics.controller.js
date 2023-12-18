@@ -30,13 +30,14 @@ const getByGenes = async (req, res, next) => {
 const getByGene = async (req, res, next) => {
   const singleGene = req.params.singleGene;
   const getStats = booleanParser(req.query.withStats);
+  const getOutliers = booleanParser(req.query.withOutliers);
 
   // check if Gene is set
   if (!!singleGene) {
     try {
       const result = await Omics.find({ gene: singleGene });
       if (!!result && result.length) {
-        res.status(200).send({ results: getStats ? withStats(result) : result });
+        res.status(200).send({ results: getStats ? withStats(result[0], getOutliers) : result[0] });
       } else {
         next(createError(404, 'Gene not found!'));
       }
