@@ -1,4 +1,4 @@
-const { Omics } = require('../models/omics.model');
+const Omics = require('../models/omics.model');
 const fs = require('fs');
 // Import JSON data
 const importData = async () => {
@@ -12,7 +12,7 @@ const importData = async () => {
       if (err) {
         console.error('Error inserting data:', err);
       } else {
-        console.log('Data inserted successfully:', docs);
+        console.log('Data inserted successfully');
       }
     });
   }
