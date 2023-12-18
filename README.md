@@ -23,7 +23,8 @@ Before initiating the application, please ensure the following prerequisites are
 
 ## Project Structure Overview
 
-- `API`: This directory contains the `node.js` REST API backend.
+- `API`: This directory contains the `node.js` REST API backend (for detiled information about the API endpoints and usage refer to the
+  [API](./api/) folder).
 - `frontend`: This directory hosts the `next.js` frontend application.
 - `MongoDB`: Includes the database seeding script (`js` script, replacing the initial `bash` script) and the `db.json` database file, which
   was converted from the `.tsv` file provided in the task email.
