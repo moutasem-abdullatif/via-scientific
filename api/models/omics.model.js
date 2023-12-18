@@ -12,4 +12,4 @@ const omicsSchema = new mongoose.Schema({
 });
 
 const Omics = mongoose.model('Omics', omicsSchema);
-module.exports = { Omics };
+module.exports = Omics;
