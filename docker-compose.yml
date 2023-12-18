@@ -1,12 +1,20 @@
 version: "3"
 services:
   mongodb:
-    container_name: mongoDB
+    image: mongodb
+    container_name: mongodb
     build: ./mongoDB
+    # ports:
+    #   - 27018:27017
     volumes:
-      - mongo_vol:/usr/src/app/data/db.json
+      - mongo_vol:/data/db
   api:
     build: ./api
+    image: api
+    container_name: api
+    environment:
+      - DB_NAME=viaScientificDB
+      - MONGODB_URI=mongodb://mongodb:27017
     volumes:
       - ./api:/usr/src/app
     ports:
@@ -15,6 +23,8 @@ services:
       - mongodb
 
   frontend:
+    image: frontend
+    container_name: frontend
     build: ./frontend
     volumes:
       - ./frontend:/usr/src/app
