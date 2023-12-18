@@ -1,11 +1,10 @@
-FROM mongo:6.0
+FROM mongo
 
-WORKDIR /usr/src/app
 # Copy the seeding script into the container
-COPY db-seed.sh ./mongo-seed.sh
+COPY db-seed.sh db.json /
 
 # Make the script executable
-RUN chmod +x ./mongo-seed.sh
+RUN chmod +x db-seed.sh
 
 # Execute the script when the container starts
-CMD ["/usr/src/app/mongo-seed.sh"]
+# CMD ["/db-seed.sh"]
