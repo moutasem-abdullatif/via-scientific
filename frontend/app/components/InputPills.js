@@ -6,7 +6,7 @@ export default function InputPills({ onSearch }) {
   const [inputValue, setInputValue] = useState('');
   const [geneNames, setGeneNames] = useState([
     { id: 0, name: 'Col6a2' },
-    { id: 1, name: 'Col6a2' },
+    { id: 1, name: 'Gm5434' },
   ]);
 
   const handleInputChange = (event) => {

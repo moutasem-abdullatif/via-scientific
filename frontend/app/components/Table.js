@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChartBar } from '@fortawesome/free-solid-svg-icons';
 
-export default function Table({ geneData }) {
+export default function Table({ geneData, onGetGeneData }) {
   return (
     <table className='table-fixed min-w-full divide-y divide-gray-200 '>
       <thead>
@@ -29,10 +29,11 @@ export default function Table({ geneData }) {
 
             <td className='p-2 text-end text-sm font-medium'>
               <button
+                onClick={() => onGetGeneData(gene.gene)}
                 type='button'
                 className='inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600'>
                 Analysis
-                <FontAwesomeIcon className={`text-blue-600`} icon={faChartBar} onClick={() => removePill(gene)} />
+                <FontAwesomeIcon className={`text-blue-600`} icon={faChartBar} />
               </button>
             </td>
           </tr>
