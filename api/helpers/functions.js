@@ -50,7 +50,7 @@ withStats = (geneExpr, returnOutliers) => {
     outliers = fields.filter((f, index) => Math.abs(zscores[index]) > 3);
   }
 
-  return { mean: m, meadian: med, variance: vari, outliers: returnOutliers ? outliers : undefined };
+  return { mean: m, median: med, variance: vari, outliers: returnOutliers ? outliers : undefined };
 };
 
 module.exports = {
