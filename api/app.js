@@ -3,6 +3,12 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const createError = require('http-errors');
+const cors = require('cors');
+
+// CORS configuration
+const corsOptions = {
+  origin: '*',
+};
 
 // Initialize DB
 require('./utils/initDB')();
@@ -11,11 +17,11 @@ var omicsRoutes = require('./routes/omics');
 
 var app = express();
 
+app.use(cors(corsOptions));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-
 app.use('/', omicsRoutes);
 
 //404 handler and pass to error handler
