@@ -7,7 +7,6 @@ export default function InputPills({ onSearch }) {
   const [geneNames, setGeneNames] = useState([
     { id: 0, name: 'Col6a2' },
     { id: 1, name: 'Col6a2' },
-    { id: 2, name: 'Gm5434' },
   ]);
 
   const handleInputChange = (event) => {
@@ -49,8 +48,7 @@ export default function InputPills({ onSearch }) {
           value={inputValue}
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
-          placeholder='Enter a Gene Id and click Enter ⮐'
-          className={`peer h-10 flex-1 rounded-md bg-gray-50 px-4 font-thin ring-1 ring-gray-200 outline-none drop-shadow-sm transition-all duration-200 ease-in-out focus:bg-blue-50/70 focus:ring-2  focus:ring-blue-400`}
+          className={`peer h-10 flex-1 rounded-md bg-gray-50 px-4 font-thin ring-1 ring-gray-200 outline-none drop-shadow-sm transition-all duration-200 ease-in-out focus:bg-blue-50/70 focus:ring-2  focus:ring-blue-400 placeholder:text-sm`}
         />
         <button
           disabled={geneNames.length === 0}
