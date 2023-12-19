@@ -37,7 +37,6 @@ withStats = (geneExpr, returnOutliers) => {
   function zScores(arr, mean, std) {
     return arr
       .map((x) => {
-        console.log(x, mean, std, 'x-mean =', x - mean, 'x-mean/std', (x - mean) / std);
         return (x - mean) / std;
       })
       .map((v) => +parseFloat(v).toFixed(2));

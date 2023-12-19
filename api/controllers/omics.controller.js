@@ -42,7 +42,6 @@ const getByGene = async (req, res, next) => {
         next(createError(404, 'Gene not found!'));
       }
     } catch (error) {
-      console.log(error);
       next(createError(500, 'Something went wrong!'));
     }
   } else {
