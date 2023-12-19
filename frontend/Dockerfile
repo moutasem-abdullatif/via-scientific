@@ -2,11 +2,9 @@ FROM node:18.17-alpine
 
 WORKDIR /usr/src/app
 
-COPY package*.json ./
+COPY . .
 
 RUN npm i
-
-COPY . .
 
 # RUN FOR PRO
 # CMD ["npm","run","start"]

@@ -1,4 +1,4 @@
-version: "3"
+version: '3'
 services:
   mongodb:
     image: mongodb
@@ -15,8 +15,8 @@ services:
     environment:
       - DB_NAME=viaScientificDB
       - MONGODB_URI=mongodb://mongodb:27017
-    volumes:
-      - ./api:/usr/src/app
+    # volumes:
+    #   - ./api:/usr/src/app
     ports:
       - 3000:3000
     depends_on:
@@ -26,8 +26,8 @@ services:
     image: frontend
     container_name: frontend
     build: ./frontend
-    volumes:
-      - ./frontend:/usr/src/app
+    # volumes:
+    #   - ./frontend:/usr/src/app
     ports:
       - 3001:3000
     depends_on:
@@ -36,7 +36,7 @@ services:
   nginx:
     build: ./nginx
     ports:
-      - "80:80"
+      - '80:80'
     depends_on:
       - frontend
       - api
