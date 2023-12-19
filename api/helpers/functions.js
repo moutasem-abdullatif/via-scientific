@@ -30,10 +30,12 @@ withStats = (geneExpr, returnOutliers) => {
     return arr.map((x) => Math.pow(x - mean, 2)).reduce((a, b) => a + b) / arr.length;
   }
 
+  // find the standard deviation
   function std(variance) {
     return Math.sqrt(variance);
   }
 
+  // find z-scores
   function zScores(arr, mean, std) {
     return arr.map((x) => (x - mean) / std).map((v) => +parseFloat(v).toFixed(2));
   }
@@ -45,7 +47,7 @@ withStats = (geneExpr, returnOutliers) => {
   if (returnOutliers) {
     stdDev = std(vari);
     zscores = zScores(expressionValues, m, stdDev);
-    outliers = fields.filter((zscore, index) => Math.abs(zscores[index]) > 3);
+    outliers = fields.filter((f, index) => Math.abs(zscores[index]) > 3);
   }
 
   return { mean: m, meadian: med, variance: vari, outliers: returnOutliers ? outliers : undefined };
